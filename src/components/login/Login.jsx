@@ -66,7 +66,7 @@ function Login() {
               <input
                 name="password"
                 onChange={formik.handleChange}
-                className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2"
+                className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-3"
                 type="password"
                 placeholder="••••••••"
               />
