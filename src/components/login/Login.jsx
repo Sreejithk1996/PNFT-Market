@@ -5,23 +5,42 @@ import Google from "../../assets/images/Google.svg";
 import X from "../../assets/images/X Icon.svg";
 import Logo2 from "../../assets/images/Logo-2.svg";
 import { useFormik } from "formik";
-import { loginSchema } from "../../validation/login";
 
 const initialValues = {
-  email: "",
-  password: "",
-};
+    email: '',
+    password: ''
+}
+
+const onSubmit = values => {
+    console.log('Form data', values)
+}
+
+const validate = values => {
+    let errors = {}
+    
+    if(!values.email) {
+        errors.email = 'Required*'
+    } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+        errors.email = 'Invalid email format'
+    }
+
+    if(!values.password) {
+        errors.password = 'Required*'
+    }
+
+    return errors
+}
 
 function Login() {
-  const formik = useFormik({
-    initialValues,
-    validationSchema: loginSchema,
-    onSubmit: (values) => {
-      alert(values);
-    },
-  });
+    const formik = useFormik({
+        initialValues,
+        onSubmit,
+        validate
+    })
 
-  console.log(formik.errors);
+    
+    console.log('form visited', formik.touched)
+
   return (
     <div className="grid grid-cols-2 grid-rows-1 h-dvh p-7 sm:p-0 sm:grid-cols-1 ">
       <div>
@@ -39,7 +58,7 @@ function Login() {
                 Please fill your detail to access your account.
               </p>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="form-control flex flex-col gap-2">
               <label
                 className="text-sm text-[#344054] font-semibold leading-5"
                 htmlFor="email"
@@ -48,15 +67,18 @@ function Login() {
               </label>
               <input
                 name="email"
-                onChange={formik.handleChange}
                 className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
                 type="text"
                 placeholder="debra.holt@example.com"
               />
+              {formik.touched.email && formik.errors.email ? <div className=" text-[red] text-[10px]">{formik.errors.email}</div> : null}
               {/* <img className='w-[24px] translate-x-8 ' src={X} alt="" /> */}
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className=" form-control flex flex-col gap-2">
               <label
                 className="text-sm text-[#344054] font-semibold leading-5"
                 htmlFor="password"
@@ -65,11 +87,14 @@ function Login() {
               </label>
               <input
                 name="password"
-                onChange={formik.handleChange}
                 className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
                 type="password"
                 placeholder="••••••••"
               />
+              {formik.touched.password && formik.errors.password ? <div className=" text-[red] text-[10px]">{formik.errors.password}</div> : null}
             </div>
 
             <div className="flex justify-between">
@@ -77,7 +102,7 @@ function Login() {
                 <input type="checkbox" id="myCheckbox" />
                 <label
                   className="text-sm text-[#344054] font-semibold"
-                  for="myCheckbox"
+                  htmlFor="myCheckbox"
                 >
                   Remember me
                 </label>
@@ -90,7 +115,10 @@ function Login() {
             </div>
 
             <div>
-              <button type="submit" className="text-base text-[#FFFFFF] font-small leading-5 rounded-lg h-[44px] bg-[#5429FF] w-[360px] hover:bg-[#492bbd]">
+              <button
+                type="submit"
+                className="text-base text-[#FFFFFF] font-small leading-5 rounded-lg h-[44px] bg-[#5429FF] w-[360px] hover:bg-[#492bbd]"
+              >
                 Sign in
               </button>
             </div>
