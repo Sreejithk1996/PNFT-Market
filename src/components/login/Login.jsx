@@ -5,6 +5,7 @@ import Google from "../../assets/images/Google.svg";
 import X from "../../assets/images/X Icon.svg";
 import Logo2 from "../../assets/images/Logo-2.svg";
 import { useFormik } from "formik";
+import * as Yup from 'yup'
 
 const initialValues = {
     email: '',
@@ -12,30 +13,37 @@ const initialValues = {
 }
 
 const onSubmit = values => {
-    console.log('Form data', values)
+    console.log('Form data', values) 
 }
 
-const validate = values => {
-    let errors = {}
+// const validate = values => {
+//     let errors = {}
     
-    if(!values.email) {
-        errors.email = 'Required*'
-    } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
-        errors.email = 'Invalid email format'
-    }
+//     if(!values.email) {
+//         errors.email = 'Required*'
+//     } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+//         errors.email = 'Invalid email format'
+//     }
 
-    if(!values.password) {
-        errors.password = 'Required*'
-    }
+//     if(!values.password) {
+//         errors.password = 'Required*'
+//     }
 
-    return errors
-}
+//     return errors
+// }
+
+const validationSchema = Yup.object({
+    email: Yup.string().email('Invalid email format').required('Required!'),
+    password: Yup.string().required('Required!')
+
+})
 
 function Login() {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        // validate,
+        validationSchema
     })
 
     
@@ -68,9 +76,7 @@ function Login() {
               <input
                 name="email"
                 className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
+                {...formik.getFieldProps('email')}
                 type="text"
                 placeholder="debra.holt@example.com"
               />
@@ -88,9 +94,7 @@ function Login() {
               <input
                 name="password"
                 className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
+                {...formik.getFieldProps('password')}
                 type="password"
                 placeholder="••••••••"
               />
