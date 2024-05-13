@@ -1,10 +1,10 @@
 import React from 'react'
-import Login from './components/login/Login'
+import Loginlocalstorage from './components/login/Loginlocalstorage'
 
 export default function App() {
   return (
     <div>
-      <Login/>
+     <Loginlocalstorage/>
     </div>
   )
 }
