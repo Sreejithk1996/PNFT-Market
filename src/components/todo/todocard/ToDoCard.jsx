@@ -1,27 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import List from '../list/List'
-import axios from 'axios'
-import { useEffect } from 'react'
+import plus from '../../../assets/images/Group 4.svg'
 
-
-function ToDoCard() {
-    const [data,setData] = useState([]);
-    useEffect(()=>{
-        axios.get('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo')
-        .then(res=>{
-            setData(res.data.slice(0,20));
-        }).catch(err=>{
-            console.log(err)
-    })
-    },[])
-
-
+function ToDoCard({data}) {
+    const todoCardData = data.filter(item => item.status === 0);
   return (
-       <div className='bg-[#ECEEF4] h-auto p-3 rounded '>
+       <div className='bg-[#ECEEF4] h-auto p-3 rounded  '>
             <div className='py-4'>
                 <p className='font-semibold text-base'>TO DO</p>
             </div>
-            <List data={data} />
+            <List data={todoCardData} />
+            <button>
+            <div className='flex items-center gap-2 py-3'>
+                <img src={plus} alt="" />
+                <p className='text-[12px] font-semibold'>Add another card</p>
+            </div>
+            </button>
         </div>
   )
 }
