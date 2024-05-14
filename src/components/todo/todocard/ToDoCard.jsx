@@ -9,7 +9,7 @@ function ToDoCard() {
     useEffect(()=>{
         axios.get('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo')
         .then(res=>{
-            setData(res.data)
+            setData(res.data.slice(0,20));
         }).catch(err=>{
             console.log(err)
     })
