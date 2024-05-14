@@ -7,7 +7,6 @@ function InProgressCard() {
         <div className='py-4'>
             <p className='font-semibold text-base'>IN PROGRESS</p>
         </div>
-        <List/>
     </div>
   )
 }

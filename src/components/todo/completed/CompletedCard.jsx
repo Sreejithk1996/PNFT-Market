@@ -7,7 +7,6 @@ function CompletedCard() {
         <div className='py-4'>
             <p className='font-semibold text-base'>COMPLETED</p>
         </div>
-        <List/>
     </div>
   )
 }
