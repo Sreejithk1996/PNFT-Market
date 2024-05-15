@@ -4,8 +4,24 @@ import Medium from '../../priority/Medium'
 import High from '../../priority/High'
 import Highest from '../../priority/Highest'
 import DateTime from '../../date/DateTime'
+import Del from '../../../assets/images/Vector.svg'
+import EditDrop from '../../edit/EditDrop'
+import axios from 'axios'
+
 
 function List({data}) {
+
+    const handleClick = (ItemId) => {
+    
+        
+        axios.delete(`https://663a5a501ae792804bef03fe.mockapi.io/todo/todo/${ItemId}`)
+        .then(res=>{
+            window.location.reload(res);
+        }).catch(err=>{
+            console.error('Error updating API:', err);
+        })
+      };
+    
   return (
     
     <div className='flex flex-col gap-3 '>
@@ -29,12 +45,18 @@ function List({data}) {
                   break;
               }
             return(
-                <div key={item.id} className='bg-white p-4 flex flex-col gap-3 rounded drop-shadow cursor-pointer hover:drop-shadow-lg'>
-                {priorityComponent}
-                <div>
-                    <p className='text-[14px]'>{item.title}</p>
-                </div>
-                <DateTime createdAt={item.createdAt}/>
+                <div key={item.id} className='bg-white p-4 flex flex-col gap-3 rounded drop-shadow  hover:drop-shadow-lg'>
+                    <div className='flex justify-between'>
+                    {priorityComponent}
+                    <button onClick={() => handleClick(item.id)}><div className='bg-[#CC0707] w-[16px] h-[16px] rounded flex justify-center items-center'><img className ='w-[6px] h-[6px]' src={Del} alt="" /></div></button>
+                    </div>
+                    <div>
+                        <p className='text-[14px]'>{item.title}</p>
+                    </div>
+                    <div className='flex justify-between gap-[115px]'>
+                        <DateTime createdAt={item.createdAt}/>
+                        <EditDrop ItemId = {item.id}/>
+                    </div> 
                 </div>
             )
         } 

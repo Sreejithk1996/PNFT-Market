@@ -7,7 +7,11 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Audio } from 'react-loader-spinner'
 
+
+
+
 function ToDo() {
+  
     const [loader, setLoader] = useState(false);
     const [data, setData] = useState([]);
 
@@ -15,7 +19,7 @@ function ToDo() {
         setLoader(true);
         axios.get('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo')
             .then(res => {
-                setData(res.data.slice(0, 30));
+                setData(res.data.slice(0, 80));
                 setLoader(false); 
             }).catch(err => {
                 console.log(err);
@@ -38,11 +42,20 @@ function ToDo() {
                         <ToDoCard data={data} />
                         <InProgressCard data={data} />
                         <CompletedCard data={data} />
+                       
                     </div>
-                </>
+                   
+                </>   
             )}
         </div>
     );
 }
 
 export default ToDo;
+
+
+
+
+
+
+

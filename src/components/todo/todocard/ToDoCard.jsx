@@ -2,6 +2,7 @@ import React from 'react'
 import List from '../list/List'
 import plus from '../../../assets/images/Group 4.svg'
 
+
 function ToDoCard({data}) {
     const todoCardData = data.filter(item => item.status === 0);
   return (
@@ -10,7 +11,7 @@ function ToDoCard({data}) {
                 <p className='font-semibold text-base'>TO DO</p>
             </div>
             <List data={todoCardData} />
-            <button>
+            <button >
             <div className='flex items-center gap-2 py-3 hover:drop-shadow-2xl'>
                 <img src={plus} alt="" />
                 <p className='text-[12px] font-semibold'>Add another card</p>
