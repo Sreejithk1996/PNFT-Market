@@ -7,7 +7,8 @@ import DateTime from '../../date/DateTime'
 
 function List({data}) {
   return (
-    <div className='flex flex-col gap-3'>
+    
+    <div className='flex flex-col gap-3 '>
         {data.map(item => {
               let priorityComponent;
               switch (item.priority) {
@@ -28,7 +29,7 @@ function List({data}) {
                   break;
               }
             return(
-                <div key={item.id} className='bg-white p-4 flex flex-col gap-3 rounded drop-shadow'>
+                <div key={item.id} className='bg-white p-4 flex flex-col gap-3 rounded drop-shadow cursor-pointer hover:drop-shadow-lg'>
                 {priorityComponent}
                 <div>
                     <p className='text-[14px]'>{item.title}</p>

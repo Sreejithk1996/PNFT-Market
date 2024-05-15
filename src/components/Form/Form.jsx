@@ -2,7 +2,12 @@ import React from 'react'
 import { useRef,useState } from 'react';
 import Google from "../../assets/images/Google.svg";
 
+
+
+
 function Form({ setIsLoggedIn }) {
+  
+
     const [error, setError] = useState(null);
     const emailRef = useRef("");
     const passwordRef = useRef("");
@@ -13,7 +18,7 @@ function Form({ setIsLoggedIn }) {
         const enteredEmail = emailRef.current.value;
         const enteredPassword = passwordRef.current.value;
 
-        if (enteredEmail === "sreejith@gmail.com" && enteredPassword === "password") {
+        if (enteredEmail === "sreejith@gmail.com" && enteredPassword === "metrictree") {
             localStorage.setItem("isLoggedIn", true);
             setIsLoggedIn(true);
             setError(null);
@@ -30,11 +35,11 @@ function Form({ setIsLoggedIn }) {
             </div>
             <div className="form-control flex flex-col gap-2">
                 <label className="text-sm text-[#344054] font-semibold leading-5" htmlFor="email">Email</label>
-                <input name="email" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="text" placeholder="debra.holt@example.com" ref={emailRef} />
+                <input name="email" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="text" placeholder="debra.holt@example.com" ref={emailRef} />   
             </div>
             <div className="form-control flex flex-col gap-2">
                 <label className="text-sm text-[#344054] font-semibold leading-5" htmlFor="password">Password</label>
-                <input name="password" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="password" placeholder="••••••••" ref={passwordRef} />
+                <input name="password" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="password" placeholder="••••••••" ref={passwordRef}  />
             </div>
             <div className="flex justify-between">
                 <div className="flex gap-1">
@@ -66,3 +71,6 @@ function Form({ setIsLoggedIn }) {
 }
 
 export default Form;
+
+
+

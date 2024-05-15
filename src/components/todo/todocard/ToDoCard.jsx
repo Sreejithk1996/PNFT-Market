@@ -11,7 +11,7 @@ function ToDoCard({data}) {
             </div>
             <List data={todoCardData} />
             <button>
-            <div className='flex items-center gap-2 py-3'>
+            <div className='flex items-center gap-2 py-3 hover:drop-shadow-2xl'>
                 <img src={plus} alt="" />
                 <p className='text-[12px] font-semibold'>Add another card</p>
             </div>

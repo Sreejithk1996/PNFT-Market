@@ -4,6 +4,7 @@ import Main from "../../assets/images/DRIP_20.svg";
 import Google from "../../assets/images/Google.svg";
 import X from "../../assets/images/X Icon.svg";
 import Logo2 from "../../assets/images/Logo-2.svg";
+import { useFormik } from "formik";
 // import { Formik, Form, Field, ErrorMessage } from "formik";
 // import * as Yup from "yup";
 
@@ -38,6 +39,14 @@ import Logo2 from "../../assets/images/Logo-2.svg";
 // });
 
 function Login() {
+
+  const formik = useFormik({
+    initialValues: {
+      email: '' ,
+      password: ''
+    }
+  })
+
   // const formik = useFormik({
   //     initialValues,
   //     onSubmit,
@@ -63,12 +72,12 @@ function Login() {
               </div>
               <div className="form-control flex flex-col gap-2">
                 <label className="text-sm text-[#344054] font-semibold leading-5" htmlFor="email">Email</label>
-                <input name="email" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="text" placeholder="debra.holt@example.com"/>
+                <input name="email" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="text" placeholder="debra.holt@example.com" onChange={formik.handleChange} value={formik.values.email}/>
                 {/* <ErrorMessage name="email"/> */}
               </div>
               <div className=" form-control flex flex-col gap-2">
                 <label className="text-sm text-[#344054] font-semibold leading-5" htmlFor="password">Password</label>
-                <input name="password" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="password" placeholder="••••••••"/>
+                <input name="password" className="border-[1px] border-[#D0D5DD] rounded-lg h-[44px] p-2 focus:border-[#5429FF] outline-none border-2" type="password" placeholder="••••••••" onChange={formik.handleChange} value={formik.values.password}/>
                 {/* <ErrorMessage name="password" /> */}
               </div>
               <div className="flex justify-between">
