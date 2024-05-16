@@ -51,7 +51,7 @@ function List({data}) {
                         <button onClick={() => handleClick(item.id)}><div className='bg-[#e84343] w-[18px] h-[18px] rounded flex justify-center items-center hover:animate-bounce delay-100ms'><img className ='w-[10px] h-[10px]' src={Del} alt="" /></div></button>
                     </div>
                     <div>
-                        <p className='text-[14px]'>{item.title}</p>
+                        <p className='text-[14px] font-medium'>{item.title}</p>
                     </div>
                     <div className='flex justify-between items-center gap-[115px]'>
                         <DateTime createdAt={item.createdAt}/>
