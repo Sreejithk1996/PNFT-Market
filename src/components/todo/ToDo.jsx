@@ -7,9 +7,6 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Audio } from 'react-loader-spinner'
 
-
-
-
 function ToDo() {
   
     const [loader, setLoader] = useState(false);
@@ -27,10 +24,10 @@ function ToDo() {
             });
     }, []);
 
-    return (
-        <div className='h-dvh my-6 mx-[100px]'>
+    return ( 
+        <div className='h-dvh my-6 mx-[100px] sm:w-[1100px] sm:mx-[20px] md:mx-[50px] md:overflow-x-ato md:w-[2500px]'>
             {loader ? (
-                <div className="flex justify-center items-center h-full">
+                <div className="flex justify-center items-center h-full sm:overflow-x-auto">
                     <Audio height="80" width="80" radius="9" color="#AE9AFF" ariaLabel="three-dots-loading" wrapperStyle wrapperClass/>
                 </div>
             ) : (
@@ -42,12 +39,10 @@ function ToDo() {
                         <ToDoCard data={data} />
                         <InProgressCard data={data} />
                         <CompletedCard data={data} />
-                       
                     </div>
-                   
                 </>   
             )}
-        </div>
+        </div>  
     );
 }
 

@@ -53,7 +53,7 @@ function List({data}) {
                     <div>
                         <p className='text-[14px]'>{item.title}</p>
                     </div>
-                    <div className='flex justify-between gap-[115px]'>
+                    <div className='flex justify-between items-center gap-[115px]'>
                         <DateTime createdAt={item.createdAt}/>
                         <EditDrop ItemId = {item.id}/>
                     </div> 

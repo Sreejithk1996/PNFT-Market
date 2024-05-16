@@ -1,22 +1,62 @@
-import React from 'react'
-import { useRef,useState } from 'react';
-import Google from "../../assets/images/Google.svg";
+// import React from 'react'
+// import { useRef,useState } from 'react';
+// import Google from "../../assets/images/Google.svg";
 
 
 
 
-function Form({ setIsLoggedIn }) {
+// function Form({ setIsLoggedIn }) {
   
 
+//     const [error, setError] = useState(null);
+//     const emailRef = useRef("");
+//     const passwordRef = useRef("");
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+
+//         const enteredEmail = emailRef.current.value;
+//         const enteredPassword = passwordRef.current.value;
+
+//         if (enteredEmail === "sreejith@gmail.com" && enteredPassword === "metrictree") {
+//             localStorage.setItem("isLoggedIn", true);
+//             setIsLoggedIn(true);
+//             setError(null);
+//         } else {
+//             setError("Invalid email or password.");
+//         }
+//     };
+
+
+
+import React, { useRef, useState } from 'react';
+import Google from "../../assets/images/Google.svg";
+
+function Form({ setIsLoggedIn }) {
     const [error, setError] = useState(null);
     const emailRef = useRef("");
     const passwordRef = useRef("");
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const enteredEmail = emailRef.current.value;
-        const enteredPassword = passwordRef.current.value;
+        const enteredEmail = emailRef.current.value.trim();
+        const enteredPassword = passwordRef.current.value.trim();
+
+        if (!enteredEmail || !enteredPassword) {
+            setError("Email and password are required.");
+            return;
+        }
+
+        if (!validateEmail(enteredEmail)) {
+            setError("Invalid email format.");
+            return;
+        }
 
         if (enteredEmail === "sreejith@gmail.com" && enteredPassword === "metrictree") {
             localStorage.setItem("isLoggedIn", true);
@@ -26,7 +66,6 @@ function Form({ setIsLoggedIn }) {
             setError("Invalid email or password.");
         }
     };
-
     return (
         <form className="flex flex-col gap-5 w-[360px] h-[517px]" onSubmit={handleSubmit}>
             <div className="flex flex-col w-[360px] gap-2">
@@ -62,9 +101,9 @@ function Form({ setIsLoggedIn }) {
             </div>
             <div className="flex justify-center items-center gap-1 text-sm leading-6 font-normal">
                 <p>Don’t have an account?</p>
-                <p className="text-sm text-[#5429FF] font-medium hover:cursor-pointer">
+                <a href='https://accounts.google.com/lifecycle/steps/signup/name?ddm=0&dsh=S1443811963:1715803110443750&flowEntry=SignUp&flowName=GlifWebSignIn&TL=ALv_Gf-kp1Tf9Dg_ZmAfpW-OLROU32_phxAZbiC1PByFuSpPAfZnK225Lal4oOdF' target='blank' className="text-sm text-[#5429FF] font-medium hover:cursor-pointer">
                     Sign up
-                </p>
+                </a>
             </div>
         </form>
     );

@@ -6,7 +6,7 @@ import plus from '../../../assets/images/Group 4.svg'
 function ToDoCard({data}) {
     const todoCardData = data.filter(item => item.status === 0);
   return (
-       <div className='bg-[#ECEEF4] h-auto p-3 rounded  '>
+       <div className='bg-[#ECEEF4]  h-auto p-3 rounded sm:w-[350px] md:w-[700px]'>
             <div className='py-4'>
                 <p className='font-semibold text-base'>TO DO</p>
             </div>
@@ -44,9 +44,8 @@ export default ToDoCard
 
 
 
-        // axios.get('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo')
-        // .then(res =>{ 
-        //     console.log(res)
-        // }).catch(err => {
-        //     console.log(err)
-        // })    
+
+
+
+
+
