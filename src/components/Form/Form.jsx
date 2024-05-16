@@ -27,7 +27,7 @@ function Form({ setIsLoggedIn }) {
             return;
         }
 
-        if (enteredEmail === "sreejith@.com" && enteredPassword === "metrictree") {
+        if (enteredEmail === "sreejith@gmail.com" && enteredPassword === "metrictree") {
             localStorage.setItem("isLoggedIn", true);
             setIsLoggedIn(true);
             setError(null);

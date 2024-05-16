@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react'
 import { Audio } from 'react-loader-spinner'
 
 function ToDo() {
-  
     const [loader, setLoader] = useState(false);
     const [data, setData] = useState([]);
 
@@ -25,6 +24,7 @@ function ToDo() {
     }, []);
 
     return ( 
+        <>
         <div className='h-dvh my-6 mx-[100px] sm:w-[1100px] sm:mx-[20px] md:mx-[50px] md:overflow-x-ato md:w-[2500px]'>
             {loader ? (
                 <div className="flex justify-center items-center h-full sm:overflow-x-auto">
@@ -42,6 +42,7 @@ function ToDo() {
                 </>   
             )}
         </div>  
+        </>
     );
 }
 
