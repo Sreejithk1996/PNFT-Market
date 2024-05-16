@@ -15,7 +15,7 @@ function ToDo() {
         setLoader(true);
         axios.get('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo')
             .then(res => {
-                setData(res.data.slice(0, 80));
+                setData(res.data);
                 setLoader(false); 
             }).catch(err => {
                 console.log(err);
