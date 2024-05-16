@@ -65,7 +65,7 @@ function Form({ setIsLoggedIn }) {
             <div>
                 <button className="flex justify-center items-center gap-2 text-base text-[#344054] border-[1px] border-[#D0D5DD] font-medium leading-5 rounded-lg h-[44px] w-[360px] hover:bg-[#5429FF] hover:text-[#FFFF]">
                     <img src={Google} alt="" />
-                    Sign in with Google
+                    <a href="https://accounts.google.com/servicelogin?hl=en-gb" target='blank'> Sign in with Google</a>
                 </button>
             </div>
             <div className="flex justify-center items-center gap-1 text-sm leading-6 font-normal">

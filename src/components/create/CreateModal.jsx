@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Del from '../../assets/images/Vector.svg';
 import calendar from '../../assets/images/calendar_today.svg';
 import Low from '../priority/Low';
+import Medium from '../priority/Medium';
+import High from '../priority/High';
+import Highest from '../priority/Highest';
 import axios from 'axios';
 
 function getCurrentDate() {
@@ -14,7 +17,8 @@ export default function CreateModal({ pop, setPop }) {
   const currentDate = getCurrentDate();
   const [task, setTask] = useState({ 
     title: '',
-    status: 0
+    status: 0,
+    priority: ''
   });
 
   function handleExit() {
@@ -23,16 +27,21 @@ export default function CreateModal({ pop, setPop }) {
 
   const handleInput = (event) => {
     const { name, value } = event.target;
+    console.log('New value:', value);
     setTask({ ...task, [name]: value });
+    console.log('Task:', task);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo', task)
-      .then(res => {
-        console.log(res);
+    console.log('Submitting task:', task);
+    const taskWithPriority = { ...task, priority: parseInt(task.priority) };
+
+    axios.post('https://663a5a501ae792804bef03fe.mockapi.io/todo/todo', taskWithPriority)
+      .then(() => {
+        window.location.reload(); 
       }).catch(err => {
-        console.log(err);
+        console.error('Error Adding Data:', err);
       });
   }
 
@@ -42,14 +51,50 @@ export default function CreateModal({ pop, setPop }) {
     document.body.classList.remove('activePop');
   }
 
+  let priorityComponent;
+  switch (task.priority) {
+    case '0':
+      priorityComponent = <Low />;
+      console.log(task.priority)
+      break;
+    case '1':
+      priorityComponent = <Medium />;
+      break;
+    case '2':
+      priorityComponent = <High />;
+      break;
+    case '3':
+      priorityComponent = <Highest />;
+      break;
+    default:
+      priorityComponent = null;
+  }
+  
   return (
     <>
       {pop && (
         <div className='bg-white p-4 flex flex-col gap-5 rounded drop-shadow hover:drop-shadow-lg'>
           <div className='flex justify-between'>
-            <Low />
+            <div>
+              <form className="max-w-sm mx-0">
+                <select
+                  id="status"
+                  name="priority"
+                  className="bg-[#CBCCE8] border border-gray-300 text-gray-900 text-[12px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-gray-300 lg:w-[90px]"
+                  onChange={handleInput}
+                  value={task.priority}
+                >
+                  <option value="">Priority</option>
+                  <option value="0">Low</option>
+                  <option value="1">Medium</option>
+                  <option value="2">High</option>
+                  <option value="3">Highest</option>
+                </select>
+              </form>
+            </div>
             <button onClick={handleExit}><div className='bg-[#e84343] w-[18px] h-[18px] rounded flex justify-center items-center'><img className='w-[10px] h-[10px]' src={Del} alt="" /></div></button>
           </div>
+          {priorityComponent}
           <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
             <div className="form-control flex flex-col gap-2">
               <label className="text-sm text-[#344054] font-semibold leading-5" htmlFor="task">Assign Task</label>
@@ -68,3 +113,5 @@ export default function CreateModal({ pop, setPop }) {
     </>
   );
 }
+
+
