@@ -12,7 +12,7 @@ function HeaderBar() {
     return (
         <>
             <div className='flex justify-center items-center gap-2'>
-                <img src={titlelogo} alt="" /><p className='font-semibold text-base'>To Do</p>
+                <img className='animate-[spin_3s_linear_infinite]' src={titlelogo} alt="" /><p className='font-semibold text-base'>To Do</p>
             </div>
             <div>
                 <button onClick={handleClick}><img className='transition delay-100 hover:rotate-[-90deg] hover:transition delay-500 sm:mx-[20px]' src={logouticon} alt="" /></button>
