@@ -47,8 +47,8 @@ function List({data}) {
             return(
                 <div key={item.id} className='bg-white p-4 flex flex-col gap-3 rounded drop-shadow  hover:drop-shadow-lg'>
                     <div className='flex justify-between'>
-                    {priorityComponent}
-                    <button onClick={() => handleClick(item.id)}><div className='bg-[#CC0707] w-[16px] h-[16px] rounded flex justify-center items-center'><img className ='w-[6px] h-[6px]' src={Del} alt="" /></div></button>
+                        {priorityComponent}
+                        <button onClick={() => handleClick(item.id)}><div className='bg-[#CC0707] w-[16px] h-[16px] rounded flex justify-center items-center'><img className ='w-[6px] h-[6px]' src={Del} alt="" /></div></button>
                     </div>
                     <div>
                         <p className='text-[14px]'>{item.title}</p>

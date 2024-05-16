@@ -6,11 +6,11 @@ function EditDrop({ ItemId }) {
     const status = parseInt(event.target.value);
     console.log(ItemId)
     axios.put(`https://663a5a501ae792804bef03fe.mockapi.io/todo/todo/${ItemId}`, { 'status': status })
-    .then(res=>{
+      .then(res => {
         window.location.reload(res);
-    }).catch(err=>{
+      }).catch(err => {
         console.error('Error updating API:', err);
-    })
+      })
   };
 
   return (

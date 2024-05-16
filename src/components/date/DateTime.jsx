@@ -1,7 +1,7 @@
 import React from 'react'
 import calendar from "../../assets/images/calendar_today.svg"
 
-function DateTime({createdAt}) {
+function DateTime({ createdAt }) {
   const parsedDate = new Date(createdAt);
   const formattedDate = new Intl.DateTimeFormat('en-US', {
     year: 'numeric',

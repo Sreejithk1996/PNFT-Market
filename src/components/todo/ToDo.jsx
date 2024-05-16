@@ -29,8 +29,7 @@ function ToDo() {
             {loader ? (
                 <div className="flex justify-center items-center h-full sm:overflow-x-auto">
                     <Audio height="80" width="80" radius="9" color="#AE9AFF" ariaLabel="three-dots-loading" wrapperStyle wrapperClass/>
-                </div>
-            ) : (
+                </div>) : (
                 <>
                     <div className='flex items-center justify-between border-b-[0.5px] py-3'>
                         <HeaderBar />
