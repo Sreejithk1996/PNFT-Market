@@ -1,6 +1,7 @@
 import React from 'react'
 import titlelogo from "../../../assets/images/Logo-title.png";
 import logouticon from "../../../assets/images/XMLID_2_.svg";
+import Avatar from '../../../assets/images/Avatar.png'
 
 function HeaderBar() {
 
@@ -14,8 +15,9 @@ function HeaderBar() {
             <div className='flex justify-center items-center gap-2'>
                 <img className='animate-[spin_3s_linear_infinite]' src={titlelogo} alt="" /><p className='font-semibold text-lg'>To Do</p>
             </div>
-            <div>
+            <div className='flex flex-row-reverse items-center gap-3'>
                 <button onClick={handleClick}><img className='transition delay-100 hover:rotate-[-90deg] hover:transition delay-100 sm:mx-[20px]' src={logouticon} alt="" /></button>
+                <img className='w-[50px]' src={Avatar} alt="" />
             </div>
         </>
     )

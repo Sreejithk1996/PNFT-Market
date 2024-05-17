@@ -35,6 +35,8 @@ function Form({ setIsLoggedIn }) {
             setError("Invalid email or password.");
         }
     };
+
+
     return (
         <form className="flex flex-col gap-5 w-[360px] h-[517px]" onSubmit={handleSubmit}>
             <div className="flex flex-col w-[360px] gap-2">
@@ -79,6 +81,12 @@ function Form({ setIsLoggedIn }) {
 }
 
 export default Form;
+
+
+
+
+
+
 
 
 
