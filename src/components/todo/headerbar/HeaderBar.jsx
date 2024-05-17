@@ -17,7 +17,7 @@ function HeaderBar() {
             </div>
             <div className='flex flex-row-reverse items-center gap-3'>
                 <button onClick={handleClick}><img className='transition delay-100 hover:rotate-[-90deg] hover:transition delay-100 sm:mx-[20px]' src={logouticon} alt="" /></button>
-                <img className='w-[50px]' src={Avatar} alt="" />
+                <img className='w-[50px] border-[#3cc92c] border-4 rounded-[50%]' src={Avatar} alt="" />
             </div>
         </>
     )
