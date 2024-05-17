@@ -6,6 +6,7 @@ import Medium from '../priority/Medium';
 import High from '../priority/High';
 import Highest from '../priority/Highest';
 import axios from 'axios';
+import CloseButton from '../close/CloseButton';
 
 function getCurrentDate() {
   const options = { month: 'short', day: 'numeric', year: 'numeric' };
@@ -92,7 +93,7 @@ export default function CreateModal({ pop, setPop }) {
                 </select>
               </form>
             </div>
-            <button onClick={handleExit}><div className='bg-[#e84343] w-[18px] h-[18px] rounded flex justify-center items-center'><img className='w-[10px] h-[10px]' src={Del} alt="" /></div></button>
+            <button onClick={handleExit}><div ><CloseButton/></div></button>
           </div>
           {priorityComponent}
           <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
