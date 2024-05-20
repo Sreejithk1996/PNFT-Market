@@ -22,16 +22,18 @@ function EditDrop({ ItemId, currentStatus }) {
 
   return (
     <form className="max-w-sm mx-0">
-      <select
-        id="status"
-        className="custom-select bg-[#0052CC] border-none text-[white] text-[12px] rounded-lg block w-full h-[30px] py-1 lg:w-[90px]"
-        onChange={handleChange}
-        value={status}
-      >
-        <option value="0">To Do</option>
-        <option value="1">In Progress</option>
-        <option value="2">Completed</option>
-      </select>
+      <div className="custom-select-wrapper">
+        <select
+          id="status"
+          className="custom-select bg-[#0052CC] border-none text-[white] text-[12px] rounded-lg block w-full h-[30px] py-1 lg:w-[90px]"
+          onChange={handleChange}
+          value={status}
+        >
+          <option value="0">To Do</option>
+          <option value="1">In Progress</option>
+          <option value="2">Completed</option>
+        </select>
+      </div>
     </form>
   );
 }

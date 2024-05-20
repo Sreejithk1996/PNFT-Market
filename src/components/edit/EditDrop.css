@@ -1,0 +1,36 @@
+.custom-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #0052CC;
+    color: white;
+    padding-right: 24px; 
+    position: relative;
+  }
+  
+  .custom-select::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; 
+    color: white;
+    font-size: 11px;
+  }
+  
+  
+  .custom-select-wrapper {
+    position: relative;
+  }
+  
+  .custom-select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+    font-size: 11px;
+  }

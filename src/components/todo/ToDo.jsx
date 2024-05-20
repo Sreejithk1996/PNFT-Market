@@ -34,7 +34,7 @@ function ToDo() {
                     <div className='flex items-center justify-between border-b-[0.5px] py-3'>
                         <HeaderBar />
                     </div>
-                    <div className='py-6 grid grid-cols-3 grid-rows-1 gap-4'>
+                    <div className='py-6 grid grid-cols-3 grid-rows-1 gap-4' >
                         <ToDoCard data={data} />
                         <InProgressCard data={data} />
                         <CompletedCard data={data} />
