@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../../assets/images/Logo.svg";
 import Main from "../../assets/images/DRIP_20.svg";
-import Logo2 from "../../assets/images/Logo-2.svg";
 import titlelogo from "../../assets/images/Logo-title.png";
 import Todo from "../todo/ToDo";
 import Form from "../Form/Form";
