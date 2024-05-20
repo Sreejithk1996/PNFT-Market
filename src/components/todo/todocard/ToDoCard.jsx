@@ -14,7 +14,7 @@ function handleClick(){
 
   return (
     <div>
-       <div className='bg-[#dccef0]  h-auto p-3 rounded sm:w-[350px] md:w-[700px]'>
+       <div className='bg-[#ECEEF4] h-auto p-3 rounded sm:w-[350px] md:w-[700px]'>
             <div className='py-4'>
                 <p className='font-semibold text-base'>TO DO</p>
             </div>

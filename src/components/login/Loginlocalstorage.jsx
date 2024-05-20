@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from "../../assets/images/Logo.svg";
 import Main from "../../assets/images/DRIP_20.svg";
 import Logo2 from "../../assets/images/Logo-2.svg";
+import titlelogo from "../../assets/images/Logo-title.png";
 import Todo from "../todo/ToDo";
 import Form from "../Form/Form";
 
@@ -21,12 +22,18 @@ function LoginLocalStorage() {
     return (
         <>
             {!isLoggedIn ? (
-                <div className="grid grid-cols-2 grid-rows-1 gap-6 h-dvh p-7 sm:p-0 sm:grid-cols-1">
+                <div className="grid grid-cols-2 grid-rows-1 gap-6 h-dvh p-9 sm:p-0 sm:grid-cols-1 md:gap-8">
                     <div>
                         <div className="flex flex-col justify-center items-center gap-10 h-full relative">
-                            <div className="absolute left-0 top-0 sm:relative md:relative">
-                                <img className="block sm:hidden md:hidden" src={Logo} alt="" />
-                                <img className="hidden sm:block md:block" src={Logo2} alt="" />
+                            <div className="absolute left-0 top-0 sm:relative md:relative ">
+                                <div className="flex items-center gap-3 block sm:hidden md:hidden">
+                                    <img src={titlelogo} alt="" />
+                                    <p className="font-semibold text-lg leading-5 ">DoDo</p>
+                                </div>
+                                <div className="flex hidden sm:flex sm:flex-col sm:gap-3 md:flex md:flex-col md:gap-3">
+                                    <img src={titlelogo} alt="" />
+                                    <p className="font-semibold text-lg leading-5 ">DoDo</p>
+                                </div>
                             </div>
                             <Form setIsLoggedIn={setIsLoggedIn} />
                         </div>

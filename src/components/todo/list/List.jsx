@@ -6,7 +6,8 @@ import Highest from '../../priority/Highest'
 import DateTime from '../../date/DateTime'
 import EditDrop from '../../edit/EditDrop'
 import axios from 'axios'
-import DeleteButton from '../../delete-button/DeleteButton'
+import trash from '../../../assets/images/Vector.svg'
+
 
 
 function List({data}) {
@@ -48,14 +49,14 @@ function List({data}) {
                 <div key={item.id} className='bg-white p-4 flex flex-col gap-3 rounded drop-shadow  hover:drop-shadow-lg'>
                     <div className='flex justify-between'>
                         {priorityComponent}
-                        <button onClick={() => handleClick(item.id)}><div ><DeleteButton/></div></button>
+                        <button onClick={() => handleClick(item.id)}><div className='bg-[#CC0707] w-[18px] h-[18px] rounded-sm flex justify-center items-center'><img className='w-[10px] h-[10px]' src={trash} alt="" /></div></button>
                     </div>
                     <div>
                         <p className='text-[14px] font-medium'>{item.title}</p>
                     </div>
                     <div className='flex justify-between items-center gap-[115px]'>
                         <DateTime createdAt={item.createdAt}/>
-                        <EditDrop ItemId = {item.id}/>
+                        <EditDrop ItemId={item.id} currentStatus={item.status} />
                     </div> 
                 </div>
             )

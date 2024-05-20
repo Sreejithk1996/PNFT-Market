@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Del from '../../assets/images/Vector.svg';
 import calendar from '../../assets/images/calendar_today.svg';
 import Low from '../priority/Low';
 import Medium from '../priority/Medium';
@@ -81,7 +80,7 @@ export default function CreateModal({ pop, setPop }) {
                 <select
                   id="status"
                   name="priority"
-                  className="bg-[#CBCCE8] border border-gray-300 text-gray-900 text-[12px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-gray-300 lg:w-[90px]"
+                  className="bg-[#CBCCE8]  text-black text-[12px] rounded-lg  block w-full h-[30px] p-1 lg:w-[90px]"
                   onChange={handleInput}
                   value={task.priority}
                 >
@@ -106,7 +105,7 @@ export default function CreateModal({ pop, setPop }) {
                 <img className='w-[14px]' src={calendar} alt="calendar" />
                 <p className='text-[#646570] font-semibold text-[10px]'>{currentDate}</p>
               </div>
-              <button type="submit" className="text-base text-[#FFFFFF] font-small leading-5 rounded-lg h-[40px] bg-[#5429FF] w-[30%] hover:bg-[#492bbd]">Add</button>
+              <button type="submit" className="text-base text-[#FFFFFF] font-small leading-5 rounded-lg h-[40px] bg-[#0052CC] w-[25%] hover:bg-[#492bbd]">Add</button>
             </div>
           </form>
         </div>
@@ -114,5 +113,4 @@ export default function CreateModal({ pop, setPop }) {
     </>
   );
 }
-
 

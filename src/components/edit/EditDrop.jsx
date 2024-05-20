@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './EditDrop.css'
 
-function EditDrop({ ItemId }) {
+function EditDrop({ ItemId, currentStatus }) {
+  const [status, setStatus] = useState(currentStatus);
+
+  useEffect(() => {
+    setStatus(currentStatus);
+  }, [currentStatus]);
+
   const handleChange = (event) => {
-    const status = parseInt(event.target.value);
-    console.log(ItemId)
-    axios.put(`https://663a5a501ae792804bef03fe.mockapi.io/todo/todo/${ItemId}`, { 'status': status })
+    const newStatus = parseInt(event.target.value);
+    setStatus(newStatus);
+    axios.put(`https://663a5a501ae792804bef03fe.mockapi.io/todo/todo/${ItemId}`, { 'status': newStatus })
       .then(res => {
-        window.location.reload(res);
+        window.location.reload();
       }).catch(err => {
         console.error('Error updating API:', err);
       })
@@ -17,10 +24,10 @@ function EditDrop({ ItemId }) {
     <form className="max-w-sm mx-0">
       <select
         id="status"
-        className="bg-gray-100 border border-gray-300 text-gray-900 text-[12px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-gray-300 lg:w-[90px]"
+        className="custom-select bg-[#0052CC] border-none text-[white] text-[12px] rounded-lg block w-full h-[30px] py-1 lg:w-[90px]"
         onChange={handleChange}
+        value={status}
       >
-        <option value="">Update Status</option>
         <option value="0">To Do</option>
         <option value="1">In Progress</option>
         <option value="2">Completed</option>
@@ -30,3 +37,4 @@ function EditDrop({ ItemId }) {
 }
 
 export default EditDrop;
+
